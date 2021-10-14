@@ -1,15 +1,14 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+# language_tabs: # must be one of https://git.io/vQNgJ
+#   - shell
+#   - javascript
+#   - html
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='#'>Sign Up for a APP and Secret Key</a>
+  - <a href='https://creditable.id'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -19,227 +18,171 @@ search: true
 code_clipboard: true
 
 meta:
-  - name: description
-    content: Documentation for the Kittn API
+  - name: Creditable ID
+    content: Creditable ID identity management service
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+We provide API for Authorization ,Authentication ,Profile Data retrieval and any other actions you can perform via the creditable ID [Dashboard](https://creditable.id) as a business.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Products
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+## Authorization
 
-# Authentication
+> With creditable ID, you can perform a Face Authorization with ease.
 
-> To authorize, use this code:
+This let you authorise logged in user with creditable ID
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```html
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://res.cloudinary.com/open-source/raw/upload/v1628317436/creditableid/style_k1nsp7.css"
+/>
 ```
 
-```python
-import kittn
+in you footer , place the below snippet,and also edit the config object with user's email `userEmail` and your application `(appId)` with your application Id you created in your creditable ID dashboard.
+[Learn to create Creditable Id APP how to create creditable ID integration application](https://creditable.id)
 
-api = kittn.authorize('meowmeowmeow')
+```html
+<script>
+  //config also will goes here
+  const credConfig = {
+    appId: "test-9876543234567",
+    userEmail: "example@gmail.com",
+    callback: function (payload) {
+      console.log(payload);
+    },
+  };
+</script>
+<script
+  type="text/babel"
+  src="https://res.cloudinary.com/open-source/raw/upload/v1631266374/creditable_jsnfjy.js"
+></script>
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
+The call back payload will be in form of the snippet below on success
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
+//the parsed response
+{
+        email: "example@gmail.com",
+        url: "captured image",
+        authKey:"examleauthkeystring",
+      }
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+The next step is to use the returned authKey and your secret key to confirm the authentication status.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<!-- You must replace <code>meowmeowmeow</code> with your personal API key. -->
+With creditable ID, you can perform a Face Authorization with ease
 </aside>
 
-# Kittens
+## Authentication
 
-## Get All Kittens
+> With creditable ID, you can perform a Face Authentication with ease.
 
-```ruby
-require 'kittn'
+This let you authenticate user: user will have to provide image and capture face
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```html
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://res.cloudinary.com/open-source/raw/upload/v1628317436/creditableid/style_k1nsp7.css"
+/>
 ```
 
-```python
-import kittn
+in you footer , place the below snippet,and also edit the config object with your application `(appId)` with your application Id you created in your creditable ID dashboard.
+[Learn to create Creditable Id APP how to create creditable ID integration application](https://creditable.id)
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```html
+<script>
+  //config also will goes here
+  const credConfig = {
+    appId: "test-9876543234567",
+    userEmail: null, //important for authentication flow to be activated
+    callback: function (payload) {
+      console.log(payload);
+    },
+  };
+</script>
+<script
+  type="text/babel"
+  src="https://res.cloudinary.com/open-source/raw/upload/v1631266374/creditable_jsnfjy.js"
+></script>
 ```
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
+The call back payload will be in form of the snippet below on success
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+//the parsed response
+{
+        email: "example@gmail.com",
+        url: "captured image",
+        authKey:"examleauthkeystring",
+      }
 ```
 
-> The above command returns JSON structured like this:
+The next step is to use the returned authKey and your secret key to confirm the authentication status.
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+<aside class="notice">
+<!-- You must replace <code>meowmeowmeow</code> with your personal API key. -->
+With creditable ID, you can perform a Face Authorization with ease
+</aside>
+
+## Verification (Confirm Authorization /Authentication Status)
+
+This let you verify in your backend the status of an action using the `auth key` returned above and your `secret key` gotten from
+your [Creditable ID Dashboard](https://creditable.id)
 
 This endpoint retrieves all kittens.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://server.creditable.id/api/gateway/validate/face`
 
-### Query Parameters
+### Body Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+| Parameter | Required | Type   | Description                                                                                     |
+| --------- | -------- | ------ | ----------------------------------------------------------------------------------------------- |
+| authKey   | true     | string | The Auth key returned above unique for every successful attempt.                                |
+| secretKey | true     | string | The business account secret key ,can be gotten from the Creditable ID business/staff dashboard. |
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="others">
+Remember verification are required to be done in the backend and client side
 </aside>
 
-## Get a Specific Kitten
+<aside class="success">
 
-```ruby
-require 'kittn'
+200 OK SUCCESS RESPONSE :successful face match
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+</aside>
 
 ```json
+//success response
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "result": 1,
+  "message": "success",
+  "data": {
+    "email": "example@gmail.com",
+    "status": "matched"
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+<aside class="warning">
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+400 ERROR RESPONSE : face not matched or other error occured
 
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+</aside>
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+//error response
+{ "result": 0, "message": "Error : error message" }
 ```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
