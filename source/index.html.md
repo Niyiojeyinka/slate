@@ -102,6 +102,8 @@ in you footer , place the below snippet,and also edit the config object with you
 [Learn to create Creditable Id APP how to create creditable ID integration application](https://creditable.id)
 
 ```html
+<div id="cred" class="cred-hide"></div>
+<!-- this div is needed for the popup modal -->
 <script>
   //config also will goes here
   const credConfig = {
