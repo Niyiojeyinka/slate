@@ -40,7 +40,7 @@ This let you authorise logged in user with creditable ID
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <link
   rel="stylesheet"
-  href="https://res.cloudinary.com/open-source/raw/upload/v1628317436/creditableid/style_k1nsp7.css"
+  href="https://server.creditable.id/public/sdk/style.css"
 />
 ```
 
@@ -60,7 +60,7 @@ in you footer , place the below snippet,and also edit the config object with use
 </script>
 <script
   type="text/babel"
-  src="https://res.cloudinary.com/open-source/raw/upload/v1631266374/creditable_jsnfjy.js"
+  src="https://server.creditable.id/public/sdk/creditable.js"
 ></script>
 ```
 
@@ -94,7 +94,7 @@ This let you authenticate user: user will have to provide image and capture face
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <link
   rel="stylesheet"
-  href="https://res.cloudinary.com/open-source/raw/upload/v1628317436/creditableid/style_k1nsp7.css"
+  href="https://server.creditable.id/public/sdk/style.css"
 />
 ```
 
@@ -116,7 +116,7 @@ in you footer , place the below snippet,and also edit the config object with you
 </script>
 <script
   type="text/babel"
-  src="https://res.cloudinary.com/open-source/raw/upload/v1631266374/creditable_jsnfjy.js"
+  src="https://server.creditable.id/public/sdk/creditable.js"
 ></script>
 ```
 
