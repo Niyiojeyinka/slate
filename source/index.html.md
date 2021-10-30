@@ -126,7 +126,6 @@ The call back payload will be in form of the snippet below on success
 //the parsed response
 {
         email: "example@gmail.com",
-        url: "captured image",
         authKey:"examleauthkeystring",
       }
 ```
