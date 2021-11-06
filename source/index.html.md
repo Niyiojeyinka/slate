@@ -200,7 +200,7 @@ your [Creditable ID Dashboard](https://creditable.id)
 | Parameter | Required | Type   | Description                                                               |
 | --------- | -------- | ------ | ------------------------------------------------------------------------- |
 | appID     | true     | string | The App ID can be gotten from the Creditable ID business/staff dashboard. |
-| email     | true     | string | The Email of the user to verify his/her face                              |
+| search    | true     | string | The Email/Phone number of the user to verify his/her face                 |
 | url       | true     | string | The Face Url to verify                                                    |
 
 <aside class="success">
