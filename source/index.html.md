@@ -142,8 +142,6 @@ With creditable ID, you can perform a Face Authorization with ease
 This let you verify in your backend the status of an action using the `auth key` returned above and your `secret key` gotten from
 your [Creditable ID Dashboard](https://creditable.id)
 
-This endpoint retrieves all kittens.
-
 ### HTTP Request
 
 `POST https://server.creditable.id/api/gateway/validate/face`
@@ -158,6 +156,52 @@ This endpoint retrieves all kittens.
 <aside class="others">
 Remember verification are required to be done in the backend and client side
 </aside>
+
+<aside class="success">
+
+200 OK SUCCESS RESPONSE :successful face match
+
+</aside>
+
+```json
+//success response
+{
+  "result": 1,
+  "message": "success",
+  "data": {
+    "email": "example@gmail.com",
+    "status": "matched"
+  }
+}
+```
+
+<aside class="warning">
+
+400 ERROR RESPONSE : face not matched or other error occured
+
+</aside>
+
+```json
+//error response
+{ "result": 0, "message": "Error : error message" }
+```
+
+## Verifiy Face Endpoint(URL Parameter)
+
+This let you that the face in an image is that of an onboarded Credentabkle. This endoint require an `appId` gotten from
+your [Creditable ID Dashboard](https://creditable.id)
+
+### HTTP Request
+
+`POST https://server.creditable.id/api/gateway/verify/face/url`
+
+### Body Parameters
+
+| Parameter | Required | Type   | Description                                                               |
+| --------- | -------- | ------ | ------------------------------------------------------------------------- |
+| appID     | true     | string | The App ID can be gotten from the Creditable ID business/staff dashboard. |
+| email     | true     | string | The Email of the user to verify his/her face                              |
+| url       | true     | string | The Face Url to verify                                                    |
 
 <aside class="success">
 
